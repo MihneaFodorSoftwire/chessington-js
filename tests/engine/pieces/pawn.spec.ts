@@ -42,6 +42,15 @@ describe('Pawn', () => {
             moves.should.deep.include.members([Square.at(2, 7), Square.at(3, 7)]);
         });
 
+        it('cannot move at the top of the board', () => {
+            const pawn = new Pawn(Player.WHITE);
+            board.setPiece(Square.at(7, 3), pawn);
+
+            const moves = pawn.getAvailableMoves(board);
+
+            moves.should.be.empty;
+        });
+
     });
 
     describe('black pawns', () => {
@@ -79,6 +88,14 @@ describe('Pawn', () => {
             moves.should.deep.include.members([Square.at(4, 7), Square.at(5, 7)]);
         });
 
+        it('cannot move at the bottom of the board', () => {
+            const pawn = new Pawn(Player.BLACK);
+            board.setPiece(Square.at(0, 3), pawn);
+
+            const moves = pawn.getAvailableMoves(board);
+
+            moves.should.be.empty;
+        });
     });
 
     let board :Board;
