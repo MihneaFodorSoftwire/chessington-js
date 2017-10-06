@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b9884ccd-c090-46fb-b7ff-2da948b8050d" name="Changes" comment="&quot;Solving conflicts because of pretty :(.&quot;">
+      <change beforePath="$PROJECT_DIR$/src/engine/board.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/board.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/pieces/pawn.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/pawn.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/engine/pieces/pawn.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tests/engine/pieces/pawn.spec.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2zXOlCJQxgvEEJTIJHJBSOpnoFX" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Mocha../tests/**/*.spec.ts.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Cherry-picking in Test",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs.mocha.mocha_node_package_dir": "C:/Work/Bootcamp/chessington-js2/node_modules/mocha",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Work\\Bootcamp\\chessington-js2\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="./tests/**/*.spec.ts" type="mocha-javascript-test-runner" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options>--require ts-node/register</extra-mocha-options>
+      <test-kind>PATTERN</test-kind>
+      <test-pattern>./tests/**/*.spec.ts</test-pattern>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-WS-251.26927.40" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b9884ccd-c090-46fb-b7ff-2da948b8050d" name="Changes" comment="" />
+      <created>1751874099717</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1751874099717</updated>
+      <workItem from="1751874100900" duration="2752000" />
+      <workItem from="1751878075292" duration="1413000" />
+    </task>
+    <task id="LOCAL-00001" summary="&quot;Implemented pawn 1 square move.&quot;">
+      <option name="closed" value="true" />
+      <created>1751877390127</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1751877390127</updated>
+    </task>
+    <task id="LOCAL-00002" summary="&quot;Used pretty&quot;">
+      <option name="closed" value="true" />
+      <created>1751877689468</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1751877689468</updated>
+    </task>
+    <task id="LOCAL-00003" summary="&quot;Solving conflicts because of pretty :(.&quot;">
+      <option name="closed" value="true" />
+      <created>1751877855913</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1751877855913</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/tests/engine/pieces/pawn.spec.js" />
+        <option value="$PROJECT_DIR$/src/engine/board.js" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="&quot;Implemented pawn 1 square move.&quot;" />
+    <MESSAGE value="&quot;Used pretty&quot;" />
+    <MESSAGE value="&quot;Solving conflicts because of pretty :(.&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Solving conflicts because of pretty :(.&quot;" />
+  </component>
+</project>
