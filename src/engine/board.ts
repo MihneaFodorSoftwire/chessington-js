@@ -4,6 +4,7 @@ import Square from './square';
 import Piece from './pieces/piece';
 import history from "./history";
 import MovesHistory from "./history";
+import Pawn from "./pieces/pawn";
 
 export default class Board {
     public currentPlayer: Player;
@@ -46,6 +47,7 @@ export default class Board {
             this.moveHistory.push(new MovesHistory(this.currentPlayer, movingPiece, fromSquare, toSquare));
             this.setPiece(toSquare, movingPiece);
             this.setPiece(fromSquare, undefined);
+            this.enPassant();
             this.currentPlayer = (this.currentPlayer === Player.WHITE ? Player.BLACK : Player.WHITE);
         }
     }
@@ -56,6 +58,31 @@ export default class Board {
             board[i] = new Array(GameSettings.BOARD_SIZE);
         }
         return board;
+    }
+
+    private enPassant() {
+        const lastMove: MovesHistory = this.moveHistory[this.moveHistory.length - 1];
+        if (lastMove && lastMove.piece != undefined && lastMove.piece instanceof Pawn) {
+            const lastOtherPlayerMove: MovesHistory = this.moveHistory[this.moveHistory.length - 2];
+            if (lastOtherPlayerMove && lastOtherPlayerMove.piece != undefined &&
+                lastOtherPlayerMove.piece instanceof Pawn) {
+                if (this.currentPlayer === Player.WHITE) {
+                    if (lastOtherPlayerMove.initialPosition.row == 6 &&
+                        lastOtherPlayerMove.FinalPosition.row == 4 &&
+                        lastMove.FinalPosition.row == 5 &&
+                        lastMove.FinalPosition.col == lastOtherPlayerMove.FinalPosition.col) {
+                        this.setPiece(lastOtherPlayerMove.FinalPosition, undefined);
+                    }
+                } else {
+                    if (lastOtherPlayerMove.initialPosition.row == 1 &&
+                        lastOtherPlayerMove.FinalPosition.row == 3 &&
+                        lastMove.FinalPosition.row == 2 &&
+                        lastMove.FinalPosition.col == lastOtherPlayerMove.FinalPosition.col) {
+                        this.setPiece(lastOtherPlayerMove.FinalPosition, undefined);
+                    }
+                }
+            }
+        }
     }
 
 }
