@@ -2,6 +2,7 @@ import Piece from './piece';
 import Player from '../player';
 import Board from '../board';
 import Square from "../square";
+import King from "./king";
 
 export default class Queen extends Piece {
     public constructor(player: Player) {
@@ -36,6 +37,12 @@ export default class Queen extends Piece {
                 if (board.getPiece(nextSquare) === undefined) {
                     moves.push(nextSquare);
                 } else {
+                    const seenPiece :Piece|undefined = board.getPiece(nextSquare);
+                    if (seenPiece?.player !== this.player) {
+                        if (!(seenPiece instanceof King)) {
+                            moves.push(nextSquare);
+                        }
+                    }
                     break;
                 }
                 row += rowMove;
