@@ -31,6 +31,14 @@ export default class Board {
         throw new Error('The supplied piece is not on the board');
     }
 
+    public isValidSquare(square: Square) {
+        if (square.row < 0 || square.row > this.board.length
+            || square.col < 0 || square.col > this.board.length) {
+            return false;
+        }
+        return true;
+    }
+
     public movePiece(fromSquare: Square, toSquare: Square) {
         const movingPiece = this.getPiece(fromSquare);        
         if (!!movingPiece && movingPiece.player === this.currentPlayer) {
