@@ -32,11 +32,9 @@ export default class Board {
     }
 
     public isValidSquare(square: Square) {
-        if (square.row > 7 || square.row < 0
-            || square.col < 0 || square.col > 7) {
-            return false;
-        }
-        return true;
+        return !(square.row > 7 || square.row < 0
+            || square.col < 0 || square.col > 7);
+
     }
 
     public movePiece(fromSquare: Square, toSquare: Square) {
