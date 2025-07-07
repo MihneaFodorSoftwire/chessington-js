@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9884ccd-c090-46fb-b7ff-2da948b8050d" name="Changes" comment="&quot;Added a history system for moves.&quot;">
+    <list default="true" id="b9884ccd-c090-46fb-b7ff-2da948b8050d" name="Changes" comment="&quot;Fixed bug: piece isn't captured after En Passant.&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/engine/board.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/board.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/history.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/history.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/pieces/king.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/king.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/pieces/pawn.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/pawn.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +85,7 @@
       <updated>1751874099717</updated>
       <workItem from="1751874100900" duration="2752000" />
       <workItem from="1751878075292" duration="4499000" />
-      <workItem from="1751884250339" duration="9284000" />
+      <workItem from="1751884250339" duration="12224000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Implemented pawn 1 square move.&quot;">
       <option name="closed" value="true" />
@@ -252,7 +255,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751891327558</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="&quot;Fixed bug: piece isn't captured after En Passant.&quot;">
+      <option name="closed" value="true" />
+      <created>1751895335097</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1751895335097</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,6 +301,7 @@
     <MESSAGE value="&quot;Added tests for En Passant&quot;" />
     <MESSAGE value="&quot;Added En Passant logic&quot;" />
     <MESSAGE value="&quot;Added a history system for moves.&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;Added a history system for moves.&quot;" />
+    <MESSAGE value="&quot;Fixed bug: piece isn't captured after En Passant.&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Fixed bug: piece isn't captured after En Passant.&quot;" />
   </component>
 </project>

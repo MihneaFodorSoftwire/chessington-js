@@ -2,15 +2,15 @@ import Player from "./player";
 import Piece from "./pieces/piece";
 import Square from "./square";
 
-export default class MovesHistory {
+export default class PlayerMove {
     private _currentPlayer: Player;
     private _piece: Piece|undefined;
     private _initialPosition :Square;
-    private _FinalPosition :Square;
+    private _finalPosition :Square;
 
     public constructor(currentPlayer: Player, piece: Piece|undefined, initialPosition :Square, FinalPosition :Square) {
         this._initialPosition = initialPosition;
-        this._FinalPosition = FinalPosition;
+        this._finalPosition = FinalPosition;
         this._currentPlayer = currentPlayer;
         this._piece = piece;
     }
@@ -39,11 +39,11 @@ export default class MovesHistory {
         this._initialPosition = value;
     }
 
-    get FinalPosition(): Square {
-        return this._FinalPosition;
+    get finalPosition(): Square {
+        return this._finalPosition;
     }
 
-    set FinalPosition(value: Square) {
-        this._FinalPosition = value;
+    set finalPosition(value: Square) {
+        this._finalPosition = value;
     }
 }

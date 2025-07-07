@@ -3,13 +3,13 @@ import GameSettings from './gameSettings';
 import Square from './square';
 import Piece from './pieces/piece';
 import history from "./history";
-import MovesHistory from "./history";
+import PlayerMove from "./history";
 import Pawn from "./pieces/pawn";
 
 export default class Board {
     public currentPlayer: Player;
     private readonly board: (Piece | undefined)[][];
-    public moveHistory: MovesHistory[] = [];
+    public moveHistory: PlayerMove[] = [];
 
     constructor(currentPlayer?: Player) {
         this.currentPlayer = currentPlayer ? currentPlayer : Player.WHITE;
@@ -36,15 +36,13 @@ export default class Board {
     }
 
     public isValidSquare(square: Square) {
-        return !(square.row > 7 || square.row < 0
-            || square.col < 0 || square.col > 7);
-
+        return !(square.row > 7 || square.row < 0 || square.col < 0 || square.col > 7);
     }
 
     public movePiece(fromSquare: Square, toSquare: Square) {
         const movingPiece = this.getPiece(fromSquare);
         if (!!movingPiece && movingPiece.player === this.currentPlayer) {
-            this.moveHistory.push(new MovesHistory(this.currentPlayer, movingPiece, fromSquare, toSquare));
+            this.moveHistory.push(new PlayerMove(this.currentPlayer, movingPiece, fromSquare, toSquare));
             this.setPiece(toSquare, movingPiece);
             this.setPiece(fromSquare, undefined);
             this.enPassant();
@@ -61,28 +59,35 @@ export default class Board {
     }
 
     private enPassant() {
-        const lastMove: MovesHistory = this.moveHistory[this.moveHistory.length - 1];
+        if (this.moveHistory.length < 2) {
+            return;
+        }
+        const lastMove: PlayerMove = this.moveHistory[this.moveHistory.length - 1];
+
         if (lastMove && lastMove.piece != undefined && lastMove.piece instanceof Pawn) {
-            const lastOtherPlayerMove: MovesHistory = this.moveHistory[this.moveHistory.length - 2];
+            const lastOtherPlayerMove: PlayerMove = this.moveHistory[this.moveHistory.length - 2];
+
             if (lastOtherPlayerMove && lastOtherPlayerMove.piece != undefined &&
                 lastOtherPlayerMove.piece instanceof Pawn) {
-                if (this.currentPlayer === Player.WHITE) {
-                    if (lastOtherPlayerMove.initialPosition.row == 6 &&
-                        lastOtherPlayerMove.FinalPosition.row == 4 &&
-                        lastMove.FinalPosition.row == 5 &&
-                        lastMove.FinalPosition.col == lastOtherPlayerMove.FinalPosition.col) {
-                        this.setPiece(lastOtherPlayerMove.FinalPosition, undefined);
-                    }
-                } else {
-                    if (lastOtherPlayerMove.initialPosition.row == 1 &&
-                        lastOtherPlayerMove.FinalPosition.row == 3 &&
-                        lastMove.FinalPosition.row == 2 &&
-                        lastMove.FinalPosition.col == lastOtherPlayerMove.FinalPosition.col) {
-                        this.setPiece(lastOtherPlayerMove.FinalPosition, undefined);
-                    }
+                const direction = this.currentPlayer === Player.WHITE ? -1 : 1;
+                const startRow = this.currentPlayer === Player.WHITE ? 6 : 1;
+                const midRow = this.currentPlayer === Player.WHITE ? 5 : 2;
+                const finalRow = this.currentPlayer === Player.WHITE ? 4 : 3;
+
+                const enPassantPossible =
+                    lastOtherPlayerMove.initialPosition.row === startRow &&
+                    lastOtherPlayerMove.finalPosition.row === finalRow &&
+                    lastMove.finalPosition.row === midRow &&
+                    lastMove.finalPosition.col === lastOtherPlayerMove.finalPosition.col;
+
+                if (enPassantPossible) {
+                    this.setPiece(lastOtherPlayerMove.finalPosition, undefined);
                 }
             }
         }
     }
 
+    public getBoard() {
+        return this.board;
+    }
 }

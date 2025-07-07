@@ -3,76 +3,55 @@ import Player from '../player';
 import Board from '../board';
 import Square from "../square";
 import King from "./king";
-import MovesHistory from "../history";
+import PlayerMove from "../history";
 
 export default class Pawn extends Piece {
     public constructor(player: Player) {
         super(player);
     }
 
-    public getAvailableMoves(board: Board) {
-        const moves :Array<Square> = [];
-        const currentPosition :Square = board.findPiece(this);
+    public getAvailableMoves(board: Board): Array<Square> {
+        const moves: Array<Square> = [];
+        const currentPosition: Square = board.findPiece(this);
 
         if (!board.isValidSquare(currentPosition)) {
             return moves;
         }
 
-        if (this.player == Player.WHITE) {
-            const forwardMove :Square = new Square(currentPosition.row + 1, currentPosition.col);
-            if (board.isValidSquare(forwardMove) && (board.getPiece(forwardMove) == undefined)) {
-                moves.push(forwardMove);
+        const direction = this.player === Player.WHITE ? 1 : -1;
+        const startRow = this.player === Player.WHITE ? 1 : 6;
+        const enPassantRow = this.player === Player.WHITE ? 4 : 3;
+        const enemyStartRow = this.player === Player.WHITE ? 6 : 1;
+        const enPassantCaptureRow = currentPosition.row + direction;
 
-                if (currentPosition.row == 1) {
-                    const forwardMove2 :Square = new Square(currentPosition.row + 2, currentPosition.col);
-                    if (board.isValidSquare(forwardMove2) && (board.getPiece(forwardMove2) == undefined)) {
-                        moves.push(forwardMove2);
-                    }
-                }
-            }
-            moves.push(...this.captureDiagonals(board, currentPosition, 1));
+        const forwardMove = new Square(currentPosition.row + direction, currentPosition.col);
+        if (board.isValidSquare(forwardMove) && board.getPiece(forwardMove) === undefined) {
+            moves.push(forwardMove);
 
-            if (currentPosition.row == 4) {
-                const lastMove: MovesHistory = board.moveHistory[board.moveHistory.length - 1];
-                if (lastMove && lastMove.piece != undefined && lastMove.piece instanceof Pawn) {
-                    if (lastMove.FinalPosition.row == 4 &&
-                        (lastMove.FinalPosition.col == currentPosition.col + 1 ||
-                            lastMove.FinalPosition.col == currentPosition.col - 1) &&
-                        lastMove.initialPosition.row == 6) {
-                        moves.push(new Square(5, lastMove.FinalPosition.col));
-                    }
-                }
-            }
-
-            return moves;
-        }
-
-        if (this.player == Player.BLACK) {
-            const forwardMove :Square = new Square(currentPosition.row - 1, currentPosition.col);
-            if (board.isValidSquare(forwardMove) && (board.getPiece(forwardMove) == undefined)) {
-                moves.push(forwardMove);
-
-                if (currentPosition.row == 6) {
-                    const forwardMove2 :Square = new Square(currentPosition.row - 2, currentPosition.col);
-                    if (board.isValidSquare(forwardMove2) && (board.getPiece(forwardMove2) == undefined)) {
-                        moves.push(forwardMove2);
-                    }
-                }
-            }
-            moves.push(...this.captureDiagonals(board, currentPosition, -1));
-
-            if (currentPosition.row == 3) {
-                const lastMove: MovesHistory = board.moveHistory[board.moveHistory.length - 1];
-                if (lastMove && lastMove.piece != undefined && lastMove.piece instanceof Pawn) {
-                    if (lastMove.FinalPosition.row == 3 &&
-                        (lastMove.FinalPosition.col == currentPosition.col + 1 ||
-                            lastMove.FinalPosition.col == currentPosition.col - 1) &&
-                        lastMove.initialPosition.row == 1) {
-                        moves.push(new Square(2, lastMove.FinalPosition.col));
-                    }
+            if (currentPosition.row === startRow) {
+                const forwardMove2 = new Square(currentPosition.row + 2 * direction, currentPosition.col);
+                if (board.isValidSquare(forwardMove2) && board.getPiece(forwardMove2) === undefined) {
+                    moves.push(forwardMove2);
                 }
             }
         }
+
+        moves.push(...this.captureDiagonals(board, currentPosition, direction));
+
+        if (currentPosition.row === enPassantRow) {
+            const lastMove: PlayerMove = board.moveHistory[board.moveHistory.length - 1];
+            if (lastMove?.piece instanceof Pawn) {
+                const colDiff = Math.abs(lastMove.finalPosition.col - currentPosition.col);
+                if (
+                    colDiff === 1 &&
+                    lastMove.initialPosition.row === enemyStartRow &&
+                    lastMove.finalPosition.row === enPassantRow
+                ) {
+                    moves.push(new Square(enPassantCaptureRow, lastMove.finalPosition.col));
+                }
+            }
+        }
+
         return moves;
     }
 
