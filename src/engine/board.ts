@@ -32,8 +32,8 @@ export default class Board {
     }
 
     public isValidSquare(square: Square) {
-        if (square.row < 0 || square.row > this.board.length
-            || square.col < 0 || square.col > this.board.length) {
+        if (square.row > 7 || square.row < 0
+            || square.col < 0 || square.col > 7) {
             return false;
         }
         return true;
