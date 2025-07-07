@@ -30,8 +30,18 @@ export default class King extends Piece {
         for (const [rowMove, colMove] of directions) {
             const newMove :Square = new Square(currentPosition.row + rowMove,
                 currentPosition.col + colMove);
-            if (board.isValidSquare(newMove) && (board.getPiece(newMove) == undefined)) {
+            if (!board.isValidSquare(newMove)) {
+                continue;
+            }
+            if (board.getPiece(newMove) == undefined) {
                 moves.push(newMove);
+            } else {
+                const seenPiece :Piece|undefined = board.getPiece(newMove);
+                if (seenPiece?.player !== this.player) {
+                    if (!(seenPiece instanceof King)) {
+                        moves.push(newMove);
+                    }
+                }
             }
         }
         return moves;
