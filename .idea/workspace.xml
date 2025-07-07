@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9884ccd-c090-46fb-b7ff-2da948b8050d" name="Changes" comment="&quot;Added new tests&quot;">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/pieces/rook.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/rook.ts" afterDir="false" />
-    </list>
+    <list default="true" id="b9884ccd-c090-46fb-b7ff-2da948b8050d" name="Changes" comment="&quot;Kings can take pieces.&quot;" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,7 +76,7 @@
       <updated>1751874099717</updated>
       <workItem from="1751874100900" duration="2752000" />
       <workItem from="1751878075292" duration="4499000" />
-      <workItem from="1751884250339" duration="1442000" />
+      <workItem from="1751884250339" duration="2054000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Implemented pawn 1 square move.&quot;">
       <option name="closed" value="true" />
@@ -177,7 +174,39 @@
       <option name="project" value="LOCAL" />
       <updated>1751885291034</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="&quot;Rock can take pieces.&quot;">
+      <option name="closed" value="true" />
+      <created>1751885980809</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1751885980809</updated>
+    </task>
+    <task id="LOCAL-00014" summary="&quot;Bishops can take pieces.&quot;">
+      <option name="closed" value="true" />
+      <created>1751886057833</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1751886057833</updated>
+    </task>
+    <task id="LOCAL-00015" summary="&quot;Kingths and queens can take pieces.&quot;">
+      <option name="closed" value="true" />
+      <created>1751886216578</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1751886216578</updated>
+    </task>
+    <task id="LOCAL-00016" summary="&quot;Kings can take pieces.&quot;">
+      <option name="closed" value="true" />
+      <created>1751886289956</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1751886289956</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,6 +243,10 @@
     <MESSAGE value="&quot;Added King movement&quot;" />
     <MESSAGE value="&quot;Merged new tests&quot;" />
     <MESSAGE value="&quot;Added new tests&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;Added new tests&quot;" />
+    <MESSAGE value="&quot;Rock can take pieces.&quot;" />
+    <MESSAGE value="&quot;Bishops can take pieces.&quot;" />
+    <MESSAGE value="&quot;Kingths and queens can take pieces.&quot;" />
+    <MESSAGE value="&quot;Kings can take pieces.&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Kings can take pieces.&quot;" />
   </component>
 </project>
