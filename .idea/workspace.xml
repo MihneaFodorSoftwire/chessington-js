@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9884ccd-c090-46fb-b7ff-2da948b8050d" name="Changes" comment="&quot;Pawns can take pieces.&quot;">
+    <list default="true" id="b9884ccd-c090-46fb-b7ff-2da948b8050d" name="Changes" comment="&quot;Refactored&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/pieces/king.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/king.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine/pieces/pawn.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/pieces/pawn.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/engine/pieces/pawn.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tests/engine/pieces/pawn.spec.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +82,7 @@
       <updated>1751874099717</updated>
       <workItem from="1751874100900" duration="2752000" />
       <workItem from="1751878075292" duration="4499000" />
-      <workItem from="1751884250339" duration="3154000" />
+      <workItem from="1751884250339" duration="4775000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Implemented pawn 1 square move.&quot;">
       <option name="closed" value="true" />
@@ -221,7 +220,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751886758323</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="&quot;Refactored&quot;">
+      <option name="closed" value="true" />
+      <created>1751887670754</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1751887670754</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,6 +270,7 @@
     <MESSAGE value="&quot;Kingths and queens can take pieces.&quot;" />
     <MESSAGE value="&quot;Kings can take pieces.&quot;" />
     <MESSAGE value="&quot;Pawns can take pieces.&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;Pawns can take pieces.&quot;" />
+    <MESSAGE value="&quot;Refactored&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Refactored&quot;" />
   </component>
 </project>
