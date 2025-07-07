@@ -29,20 +29,7 @@ export default class Pawn extends Piece {
                     }
                 }
             }
-            const directions = [
-                [1, -1],   // up-left
-                [1, 1],    // up-right
-            ];
-            for (const [row, col] of directions) {
-                const diagMove :Square = new Square(currentPosition.row + row,
-                                                    currentPosition.col + col);
-                if (board.isValidSquare(diagMove) && (board.getPiece(diagMove) != undefined)) {
-                    const seenPiece :Piece|undefined = board.getPiece(diagMove);
-                    if ((seenPiece?.player !== this.player) && !(seenPiece instanceof King)) {
-                        moves.push(diagMove);
-                    }
-                }
-            }
+            moves.push(...this.captureDiagonals(board, currentPosition, 1));
             return moves;
         }
 
@@ -58,21 +45,28 @@ export default class Pawn extends Piece {
                     }
                 }
             }
-            const directions = [
-                [-1, -1],   // "up"-left
-                [-1, 1],    // "up"-right
-            ];
-            for (const [row, col] of directions) {
-                const diagMove :Square = new Square(currentPosition.row + row,
-                    currentPosition.col + col);
-                if (board.isValidSquare(diagMove) && (board.getPiece(diagMove) != undefined)) {
-                    const seenPiece :Piece|undefined = board.getPiece(diagMove);
-                    if ((seenPiece?.player !== this.player) && !(seenPiece instanceof King)) {
-                        moves.push(diagMove);
-                    }
+            moves.push(...this.captureDiagonals(board, currentPosition, -1));
+        }
+        return moves;
+    }
+
+    private captureDiagonals(board: Board, position: Square, direction: number): Square[] {
+        const diagonalMoves: Square[] = [];
+        const directions = [
+            [direction, -1],
+            [direction, 1],
+        ];
+
+        for (const [rowOffset, colOffset] of directions) {
+            const diagMove = new Square(position.row + rowOffset, position.col + colOffset);
+            if (board.isValidSquare(diagMove)) {
+                const seenPiece = board.getPiece(diagMove);
+                if (seenPiece && seenPiece.player !== this.player && !(seenPiece instanceof King)) {
+                    diagonalMoves.push(diagMove);
                 }
             }
         }
-        return moves;
+
+        return diagonalMoves;
     }
 }

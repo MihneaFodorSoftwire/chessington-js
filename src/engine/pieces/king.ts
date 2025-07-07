@@ -29,7 +29,7 @@ export default class King extends Piece {
 
         for (const [rowMove, colMove] of directions) {
             const newMove :Square = new Square(currentPosition.row + rowMove,
-                currentPosition.col + colMove);
+                                               currentPosition.col + colMove);
             if (!board.isValidSquare(newMove)) {
                 continue;
             }
