@@ -97,40 +97,40 @@ describe('Pawn', () => {
         it('En Passant', () => {
             const pawn = new Pawn(Player.WHITE);
             const blackPawn = new Pawn(Player.BLACK);
-            board.setPiece(Square.at(4, 4), pawn);
-            board.setPiece(Square.at(7, 3), blackPawn);
+            board.setPiece(Square.at(3, 4), pawn);
+            board.setPiece(Square.at(6, 3), blackPawn);
 
-            pawn.moveTo(board, new Square(5, 4))
-            blackPawn.moveTo(board, new Square(5, 3));
+            pawn.moveTo(board, new Square(4, 4))
+            blackPawn.moveTo(board, new Square(4, 3));
             const moves = pawn.getAvailableMoves(board);
 
-            moves.should.deep.include(Square.at(6, 3));
+            moves.should.deep.include(Square.at(5, 3));
         });
 
         it('En Passant2', () => {
             const pawn = new Pawn(Player.WHITE);
             const blackPawn = new Pawn(Player.BLACK);
-            board.setPiece(Square.at(4, 2), pawn);
-            board.setPiece(Square.at(7, 3), blackPawn);
+            board.setPiece(Square.at(3, 2), pawn);
+            board.setPiece(Square.at(6, 3), blackPawn);
 
-            pawn.moveTo(board, new Square(5, 2))
-            blackPawn.moveTo(board, new Square(5, 3));
+            pawn.moveTo(board, new Square(4, 2))
+            blackPawn.moveTo(board, new Square(4, 3));
             const moves = pawn.getAvailableMoves(board);
 
-            moves.should.deep.include(Square.at(6, 3));
+            moves.should.deep.include(Square.at(5, 3));
         });
 
         it('Not En Passant', () => {
             const pawn = new Pawn(Player.WHITE);
             const blackPawn = new Pawn(Player.BLACK);
-            board.setPiece(Square.at(4, 2), pawn);
-            board.setPiece(Square.at(6, 3), blackPawn);
+            board.setPiece(Square.at(3, 2), pawn);
+            board.setPiece(Square.at(5, 3), blackPawn);
 
-            pawn.moveTo(board, new Square(5, 2))
-            blackPawn.moveTo(board, new Square(5, 3));
+            pawn.moveTo(board, new Square(4, 2))
+            blackPawn.moveTo(board, new Square(4, 3));
             const moves = pawn.getAvailableMoves(board);
 
-            moves.should.not.deep.include(Square.at(6, 3));
+            moves.should.not.deep.include(Square.at(5, 3));
         });
 
     });

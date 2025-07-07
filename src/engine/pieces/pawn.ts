@@ -3,6 +3,7 @@ import Player from '../player';
 import Board from '../board';
 import Square from "../square";
 import King from "./king";
+import MovesHistory from "../history";
 
 export default class Pawn extends Piece {
     public constructor(player: Player) {
@@ -30,6 +31,19 @@ export default class Pawn extends Piece {
                 }
             }
             moves.push(...this.captureDiagonals(board, currentPosition, 1));
+
+            if (currentPosition.row == 4) {
+                const lastMove: MovesHistory = board.moveHistory[board.moveHistory.length - 1];
+                if (lastMove && lastMove.piece != undefined && lastMove.piece instanceof Pawn) {
+                    if (lastMove.FinalPosition.row == 4 &&
+                        (lastMove.FinalPosition.col == currentPosition.col + 1 ||
+                            lastMove.FinalPosition.col == currentPosition.col - 1) &&
+                        lastMove.initialPosition.row == 6) {
+                        moves.push(new Square(5, lastMove.FinalPosition.col));
+                    }
+                }
+            }
+
             return moves;
         }
 
@@ -46,6 +60,18 @@ export default class Pawn extends Piece {
                 }
             }
             moves.push(...this.captureDiagonals(board, currentPosition, -1));
+
+            if (currentPosition.row == 3) {
+                const lastMove: MovesHistory = board.moveHistory[board.moveHistory.length - 1];
+                if (lastMove && lastMove.piece != undefined && lastMove.piece instanceof Pawn) {
+                    if (lastMove.FinalPosition.row == 3 &&
+                        (lastMove.FinalPosition.col == currentPosition.col + 1 ||
+                            lastMove.FinalPosition.col == currentPosition.col - 1) &&
+                        lastMove.initialPosition.row == 1) {
+                        moves.push(new Square(2, lastMove.FinalPosition.col));
+                    }
+                }
+            }
         }
         return moves;
     }
